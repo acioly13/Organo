@@ -15,14 +15,19 @@ const Forms = () => {
         'Inovação e Gestão'
     ]
 
+    const save = (event) => {
+        event.preventDefault()
+        console.log('Form submetido')
+    }
+
     return (
         <section className="formulario">
-            <form>
+            <form onSubmit={save}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <Form label="Nome" placeholder="Digite Seu Nome"/>
-                <Form label="Cargo" placeholder="Digite Seu Cargo"/>
+                <Form label="Nome" obrigatorio={true} placeholder="Digite Seu Nome"/>
+                <Form label="Cargo" obrigatorio={true} placeholder="Digite Seu Cargo"/>
                 <Form label="Imagem" placeholder="Digite o Endereço Da Imagem"/>
-                <DropDown label="Time" itens={times}/>
+                <DropDown obrigatorio={true} label="Time" itens={times}/>
                 <Button>
                     Criar Card
                 </Button>
